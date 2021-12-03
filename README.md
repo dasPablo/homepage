@@ -7,4 +7,4 @@
 - project headline moving out behind project picture
 - media queries (welche breaking points machen sinn, wie verhalten sich bilder (max-min width/height)
 - project pages, about, imprint… (unterseiten extra html, wo liegt das ab, extra css?)
-- hover effect to klick event on mobile 
+- hover effect to klick event on mobile (active selector after hover selector?)
