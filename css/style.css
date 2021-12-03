@@ -1,19 +1,6 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 /*
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter.ttf") format("truetype")
-    url("/fonts/Inter.var.woff2") format("woff2"),
-    url("/fonts/IInter-Medium.woff2") format("woff2"),
-    url("/fonts/Inter-Bold.woff2") format("woff2");
-
-}
-*/
+********************************CSS by Lazlo Weiss***********************************
+ */
 @font-face {
   font-family: 'Inter var';
   font-weight: 100 900;
@@ -23,235 +10,249 @@
   src: url("../fonts/Inter.var.woff2") format("woff2");
 }
 
-body {
-  font-family: "Inter var";
+/*
+******************************Variables************************************+
+ */
+:root {
+  --ff: "Inter var";
+  /*Font (Google Font Inter)*/
+  --fs: 2rem;
+  /*normal Fontsize (2rem = 32px)*/
+  --fs-s: 1rem;
+  /*small Fontsize*/
+  --space: 2rem;
+  /*normal Spacing*/
+  --space-l: calc(var(--space)*2);
+  /*large Spacing*/
+  --space-s: calc(var(--space)/2);
+  /*small Spacing*/
+  --transform-time: 300ms;
+}
+
+/*
+********************************Style for Everything*****************************
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: var(--ff);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/*
+
+**************************************Navbar*****************************************************
+
+ */
 .navbar {
+  position: fixed;
   width: 100%;
-  height: 120px;
-  margin: 0;
-  padding: 0;
+  height: calc(var(--space-l)*2);
 }
 
 .nav-hover {
-  margin: 0;
-  padding: 0;
-  height: 60px;
+  height: var(--space-l);
 }
 
 #nav {
-  display: block;
+  display: flex;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  transform: translateY(-60px);
-  transition: transform 300ms ease;
+  transform: translateY(-4rem);
+  transition: transform var(--transform-time) ease;
 }
 
 .nav-left {
-  display: block;
-  width: 50%;
-  height: 60px;
-  line-height: 60px;
+  width: calc(50% - var(--space-l));
+  height: var(--space-l);
+  line-height: var(--space-l);
+  margin-left: var(--space-l);
   float: left;
   text-align: left;
 }
 
 .nav-right {
-  display: block;
-  /* font-size: 30px; */
-  width: 50%;
-  height: 60px;
-  line-height: 60px;
+  width: calc(50% - var(--space-l));
+  height: var(--space-l);
+  line-height: var(--space-l);
+  margin-right: var(--space-l);
   float: right;
   text-align: right;
 }
 
 .bar {
-  display: block;
   position: absolute;
   left: 50%;
   right: 50%;
-  top: 15px;
+  top: var(--space-s);
   transform: rotate(0deg);
-  transition: transform 300ms ease;
+  transition: transform var(--transform-time) ease;
 }
 
 a {
   text-decoration: none;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: var(--space);
+  line-height: var(--space);
   color: #000;
-  padding: 1rem;
   font-variation-settings: 'wght'500;
-  transition: font-variation-settings 300ms ease;
+  transition: font-variation-settings var(--transform-time) ease;
 }
 
+/*Font weight incresing while hovering*/
 a:hover {
   font-variation-settings: 'wght'700;
 }
 
+/*Bar rotating by 90degres while hovering*/
 .nav-hover:hover .bar {
   transform: rotate(90deg);
 }
 
+/*Navbar moving in while hovering*/
 .nav-hover:hover #nav {
-  transform: translateY(0px);
+  transform: translateY(0);
 }
 
+/*
+
+**************************************Contet*****************************************************
+
+ */
 main {
   overflow-x: hidden;
 }
 
 #content {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  height: calc(100vh - 240px);
+  height: 100vh;
   width: 100vw;
-  /*border: 10px solid blue;*/
 }
 
 .inhalte {
-  display: block;
   height: 100%;
   width: 100%;
-  justify-content: flex-start;
 }
 
 .header-inhalt {
-  display: block;
-  margin-left: 60px;
-  height: 60px;
+  display: flex;
+  margin-left: var(--space-l);
+  height: var(--space-l);
   width: auto;
-  padding-top: 10px;
-}
-
-.headline {
-  opacity: 0;
-  visibility: collapse;
-  margin: 0;
-  padding: 0;
-  display: inline;
-  font-size: 30px;
-  line-height: 30px;
-  font-weight: 500;
-  /* transform: translateY(60px); */
-  /* transition: transform 300ms ease; */
-  transition: visibility 300ms, opacity 300ms ease;
-}
-
-.inhalte:hover .headline {
-  opacity: 1;
-  visibility: visible;
-  /* transform: translateY(0px); */
-}
-
-.img {
-  max-height: calc(100% - 60px);
-  width: auto;
-  margin-left: 60px;
-  margin-right: 60px;
+  padding-top: 0.5rem;
 }
 
 .bar-content {
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: var(--space);
+  margin-right: var(--space);
   transform: rotate(0deg);
-  transition: transform 300ms ease;
+  transition: transform var(--transform-time) ease;
 }
 
+/*Bar rotating by 90degres while hovering*/
 .inhalte:hover .bar-content {
   transform: rotate(90deg);
 }
 
-/* Footer */
-.footer {
-    overflow: hidden;
-  /* display: block; */
-  height: 120px;
-  width: 100%;
+.headline {
+  visibility: collapse;
+  font-size: var(--space);
+  line-height: var(--space);
+  font-weight: 500;
   transform: translateY(60px);
-  transition: transform 300ms ease;
+  transition: visibility var(--transform-time), transform var(--transform-time) ease;
 }
 
-.footer:hover {
+.inhalte:hover .headline {
+  visibility: visible;
   transform: translateY(0px);
 }
 
-.foot-hover {
+.img {
+  max-height: calc(100% - 4rem);
+  width: auto;
+  margin-left: var(--space-l);
+  margin-right: var(--space-l);
+}
 
-  margin: 0;
-  padding: 0;
-  height: 60px;
+/*
+
+**************************************Footer*****************************************************
+
+ */
+.footer {
+  align-items: center;
+  bottom: 3rem;
+  position: fixed;
+  height: 4rem;
+  width: 100%;
+  transform: translateY(var(--space-l));
+  transition: transform var(--transform-time) ease;
+}
+
+/*Footer moving in while hovering*/
+.footer:hover {
+  transform: translateY(0);
+}
+
+.foot-hover {
+  height: var(--space-l);
 }
 
 .bar-footer {
-
-  display: block;
   position: absolute;
-  left: 50%;
-  right: 50%;
-  bottom: 75px;
+  margin-left: 50%;
+  margin-right: auto;
   transform: rotate(0deg);
-  transition: transform 300ms ease;
+  transition: transform var(--transform-time) ease;
 }
 
+/*Bar rotating by 90degres while hovering*/
 .footer:hover .bar-footer {
   transform: rotate(90deg);
 }
 
+/*pushing footer-content same position as navbar-content*/
 #foot {
-
-        border: 1px solid red;
-  /* height: 60px; */
-  display: block;
   list-style-type: none;
-  margin: 0;
-  margin-left: 60px;
-  margin-right: 60px;
-  padding: 0;
+  margin-left: var(--space-l);
+  margin-right: var(--space-l);
 }
 
 .footer-left {
-  padding: 0;
-  display: block;
   width: 33%;
-  /* height: 60px; */
-  line-height: 60px;
+  line-height: var(--space);
   float: left;
   text-align: left;
 }
 
 .footer-center {
-  padding: 0;
-  display: block;
   width: 33%;
-  /* height: 60px; */
-  line-height: 60px;
+  line-height: var(--space);
   float: left;
   text-align: center;
 }
 
 .footer-right {
-  padding: 0;
-  display: block;
   width: 33%;
-  /* height: 60px; */
-  line-height: 60px;
+  line-height: var(--space);
   float: right;
   text-align: right;
 }
 
+/* Media Queries
+*********************Note: Media queries aren't working at the moment (02.12.21)**************
+
+*/
 @media (max-width: 1500px) {
   a {
     font-size: 25px;
@@ -265,7 +266,6 @@ main {
 }
 
 @media (max-width: 1300px) {
-
   #content {
     height: calc(100vh - 320px);
     /*border: 10px solid blue;*/
@@ -273,12 +273,11 @@ main {
 
   .footer {
     overflow: hidden;
-    display: block;
     height: 200px;
     width: 100%;
     border: 1px solid green;
     transform: translateY(140px);
-    transition: transform 300ms ease;
+    transition: transform var(--transform-time) ease;
   }
 
   .foot-hover {
@@ -288,16 +287,15 @@ main {
   }
 
   .bar-footer {
-    display: block;
     position: absolute;
     left: 50%;
     right: 50%;
     bottom: 150px;
     transform: rotate(0deg);
-    transition: transform 300ms ease;
+    transition: transform var(--transform-time) ease;
   }
 
-  #foot{
+  #foot {
     transform: translateY(-40px);
   }
 
