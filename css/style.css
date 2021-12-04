@@ -14,6 +14,8 @@
 ******************************Variables************************************+
  */
 :root {
+  font-size: calc(.5rem + .5vmin + .125vmax);
+  /* Root Font Size */
   --ff: "Inter var";
   /*Font (Google Font Inter)*/
   --fs: 2rem;
@@ -42,9 +44,6 @@
 
 body {
   font-family: var(--ff);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 /*
@@ -122,11 +121,14 @@ a:hover, a:active {
 
 /*
 
-**************************************Contet*****************************************************
+**************************************Content*****************************************************
 
  */
-main {
-  overflow-x: hidden;
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: auto;
 }
 
 #content {
@@ -140,16 +142,15 @@ main {
 
 .inhalte {
   height: 100%;
-  width: 100%;
+  padding-left: var(--space-l);
+  padding-right: var(--space-l);
 }
 
 .header-inhalt {
   overflow: hidden;
   display: flex;
-  margin-left: var(--space-l);
   height: var(--space-l);
-  width: auto;
-  padding-top: 0.5rem;
+  align-items: center;
 }
 
 .bar-content {
@@ -181,8 +182,7 @@ main {
 .img {
   max-height: calc(100% - 4rem);
   width: auto;
-  margin-left: var(--space-l);
-  margin-right: var(--space-l);
+  min-width: 100%;
 }
 
 /*
@@ -192,12 +192,13 @@ main {
  */
 .footer {
   align-items: center;
-  bottom: 3rem;
+  bottom: 0;
   position: fixed;
-  height: 4rem;
   width: 100%;
-  transform: translateY(var(--space-l));
+  transform: translateY(calc(100% - var(--space-l)));
   transition: transform var(--transform-time) ease;
+  padding-bottom: var(--space-s);
+
 }
 
 /*Footer moving in while hovering*/
@@ -227,27 +228,25 @@ main {
   list-style-type: none;
   margin-left: var(--space-l);
   margin-right: var(--space-l);
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+#foot > li {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-left {
-  width: 33%;
   line-height: var(--space);
-  float: left;
-  text-align: left;
 }
 
 .footer-center {
-  width: 33%;
   line-height: var(--space);
-  float: left;
-  text-align: center;
 }
 
 .footer-right {
-  width: 33%;
   line-height: var(--space);
-  float: right;
-  text-align: right;
 }
 
 /* Media Queries
@@ -255,9 +254,34 @@ main {
 
 */
 @media (max-width: 1500px) {
-
+}
 
 @media (max-width: 1300px) {
-
+}
 
 @media (max-width: 500px) {
+}
+
+/* UPGRADES */
+
+@media (hover: hover) {
+  #wrapper {
+    overflow-x: hidden;
+    }
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc(( 150ch - 100%) * 999);
+}
+
+.switcher > :nth-last-child(n+ 5),
+.switcher > :nth-last-child(n+ 5) ~ * {
+  flex-basis: 100%;
+}
