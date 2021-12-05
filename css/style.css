@@ -54,36 +54,18 @@ body {
 .navbar {
   position: fixed;
   width: 100%;
-  height: calc(var(--space-l)*2);
-}
-
-.nav-hover {
-  height: var(--space-l);
 }
 
 #nav {
   display: flex;
   list-style-type: none;
+  height: var(--space-l);
+  justify-content: space-between;
+  align-items: center;
+  padding-left: var(--space-l);
+  padding-right: var(--space-l);
   transform: translateY(-4rem);
   transition: transform var(--transform-time) ease;
-}
-
-.nav-left {
-  width: calc(50% - var(--space-l));
-  height: var(--space-l);
-  line-height: var(--space-l);
-  margin-left: var(--space-l);
-  float: left;
-  text-align: left;
-}
-
-.nav-right {
-  width: calc(50% - var(--space-l));
-  height: var(--space-l);
-  line-height: var(--space-l);
-  margin-right: var(--space-l);
-  float: right;
-  text-align: right;
 }
 
 .bar {
@@ -98,7 +80,6 @@ body {
 a {
   text-decoration: none;
   font-size: var(--space);
-  line-height: var(--space);
   color: #000;
   font-variation-settings: 'wght'500;
   transition: font-variation-settings var(--transform-time) ease;
@@ -110,12 +91,12 @@ a:hover, a:active {
 }
 
 /*Bar rotating by 90degres while hovering*/
-.nav-hover:hover .bar, .nav-hover:active .bar {
+.navbar:hover .bar {
   transform: rotate(90deg);
 }
 
 /*Navbar moving in while hovering*/
-.nav-hover:hover #nav, .nav-hover:active #nav {
+.navbar:hover #nav {
   transform: translateY(0);
 }
 
@@ -191,6 +172,7 @@ a:hover, a:active {
 
  */
 .footer {
+  background-color: #fff;
   align-items: center;
   bottom: 0;
   position: fixed;
@@ -198,7 +180,6 @@ a:hover, a:active {
   transform: translateY(calc(100% - var(--space-l)));
   transition: transform var(--transform-time) ease;
   padding-bottom: var(--space-s);
-
 }
 
 /*Footer moving in while hovering*/
@@ -211,7 +192,6 @@ a:hover, a:active {
 }
 
 .bar-footer {
-  position: absolute;
   margin-left: 50%;
   margin-right: auto;
   transform: rotate(0deg);
@@ -226,13 +206,12 @@ a:hover, a:active {
 /*pushing footer-content same position as navbar-content*/
 #foot {
   list-style-type: none;
-  margin-left: var(--space-l);
-  margin-right: var(--space-l);
   display: flex;
   flex-wrap: wrap;
   text-align: center;
 }
-#foot > li {
+
+#foot>li {
   margin-left: auto;
   margin-right: auto;
 }
@@ -253,21 +232,17 @@ a:hover, a:active {
 *********************Note: Media queries aren't working at the moment (02.12.21)**************
 
 */
-@media (max-width: 1500px) {
-}
+@media (max-width: 1500px) {}
 
-@media (max-width: 1300px) {
-}
+@media (max-width: 1300px) {}
 
-@media (max-width: 500px) {
-}
+@media (max-width: 500px) {}
 
 /* UPGRADES */
-
 @media (hover: hover) {
   #wrapper {
     overflow-x: hidden;
-    }
+  }
 }
 
 .switcher {
@@ -276,12 +251,12 @@ a:hover, a:active {
   gap: var(--space-s);
 }
 
-.switcher > * {
+.switcher>* {
   flex-grow: 1;
-  flex-basis: calc(( 150ch - 100%) * 999);
+  flex-basis: calc((150ch - 100%) * 999);
 }
 
-.switcher > :nth-last-child(n+ 5),
-.switcher > :nth-last-child(n+ 5) ~ * {
+.switcher> :nth-last-child(n+ 5),
+.switcher> :nth-last-child(n+ 5)~* {
   flex-basis: 100%;
 }
