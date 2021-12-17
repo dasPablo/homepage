@@ -3,8 +3,7 @@
 ## to-do
 - horizontal scrolling (funktioniert auch auf mobil mit touch?)
 - css reset??? (nur für überchriften und links)
-- media queries (max-width für Bilder auf mobil)
-- hover effect to klick event on mobile (active selector after hover selector?)
-- links auf div- oder anderen elemente
+- max-width auf 100vw begrenzen
 - video settings ausblenden
-- randinformation ein/ausklappen
+- schließen von menüs auf mobil bei klick egal wo auf dem screen (body/wrapper)
+- javascript: mehrere scripte für unterschiedliche html seiten (manche elemnte nur auf projektseiten vorhanden)
